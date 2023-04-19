@@ -1,30 +1,24 @@
 # README
 
-This repository shows some strange rails 7 behaviour leveraging the references model option.
+This README would normally document whatever steps are necessary to get the
+application up and running.
 
-```
-docker compose up -d
-docker compose exec app bash
-```
+Things you may want to cover:
 
-Setup
-```
-rake db:migrate
-```
+* Ruby version
 
-Data preparation withint `rails c`
-```ruby
-d = Deal.create
-l = Loan.create(deal: d)
-fee = Fee.create(deal: d)
-```
+* System dependencies
 
-Assigning the loan to nil deletes the join table deal (which does not make use of belongs_to)
-```ruby
-irb(main):004:0> fee.loan = nil
-  TRANSACTION (0.1ms)  begin transaction
-  Deal Destroy (13.1ms)  DELETE FROM "deals" WHERE "deals"."id" = ?  [["id", 1]]
-  TRANSACTION (4.6ms)  commit transaction
-=> nil      
-```
+* Configuration
 
+* Database creation
+
+* Database initialization
+
+* How to run the test suite
+
+* Services (job queues, cache servers, search engines, etc.)
+
+* Deployment instructions
+
+* ...
